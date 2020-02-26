@@ -6,18 +6,15 @@ import ru.rohtuasad.springpetclinic.model.Owner;
 import ru.rohtuasad.springpetclinic.model.Vet;
 import ru.rohtuasad.springpetclinic.services.OwnerService;
 import ru.rohtuasad.springpetclinic.services.VetService;
-import ru.rohtuasad.springpetclinic.services.map.OwnerServiceMap;
-import ru.rohtuasad.springpetclinic.services.map.VetServiceMap;
 
 @Component
 public class DataLoader implements CommandLineRunner {
-
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        this.ownerService = new OwnerServiceMap();
-        this.vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
